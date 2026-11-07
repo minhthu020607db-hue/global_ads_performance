@@ -64,7 +64,7 @@ model, cols, cats, mean_roas = load_model()
 
 d1, d2, d3, d4 = st.columns(4)
 d1.metric("Số chiến dịch", f"{len(raw):,}")
-d2.metric("Thời gian", f"{raw['date'].min():%d/%m/%Y} – {raw['date'].max():%d/%m/%Y}")
+d2.metric("Thời gian", f"{raw['date'].min():%m/%Y} – {raw['date'].max():%m/%Y}")
 d3.metric("Nền tảng / Loại CD", f"{raw['platform'].nunique()} / {raw['campaign_type'].nunique()}")
 d4.metric("Ngành / Quốc gia", f"{raw['industry'].nunique()} / {raw['country'].nunique()}")
 st.caption(f"Nguồn dữ liệu: {SOURCE}. Lưu ý: dữ liệu do tác giả sinh tổng hợp, kết quả mang tính minh họa.")
