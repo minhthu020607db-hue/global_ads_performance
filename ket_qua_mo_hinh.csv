@@ -1,0 +1,11 @@
+Mục tiêu,Mô hình,R2 (test),RMSE,MAE,R2 CV (train)
+revenue gốc,Linear Regression,0.666,18158.855,11166.916,0.685
+revenue gốc,Ridge,0.668,18111.414,11133.708,0.686
+revenue gốc,Lasso,0.676,17885.463,10897.192,0.69
+revenue gốc,Random Forest,0.674,17933.218,11068.222,0.636
+revenue gốc,XGBoost,0.656,18412.752,11488.101,0.611
+log(revenue),Linear Regression,0.465,22966.413,13071.263,0.661
+log(revenue),Ridge,0.455,23194.238,13078.298,0.662
+log(revenue),Lasso,0.455,23185.431,13021.23,0.659
+log(revenue),Random Forest,0.617,19430.489,11761.816,0.742
+log(revenue),XGBoost,0.593,20029.281,11887.888,0.74
