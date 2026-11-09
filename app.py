@@ -62,12 +62,19 @@ def load_model():
 raw = load_raw()
 model, cols, cats, mean_roas = load_model()
 
+def stat(col, label, value):
+    col.markdown(
+        f"<div style='font-size:0.85rem;opacity:0.7'>{label}</div>"
+        f"<div style='font-size:1.4rem;font-weight:600;line-height:1.3'>{value}</div>",
+        unsafe_allow_html=True,
+    )
+
+
 d1, d2, d3, d4 = st.columns(4)
-d1.metric("Số chiến dịch", f"{len(raw):,}")
-d2.metric("Thời gian", f"{raw['date'].min():%m/%Y} – {raw['date'].max():%m/%Y}")
-d3.metric("Nền tảng / Loại CD", f"{raw['platform'].nunique()} / {raw['campaign_type'].nunique()}")
-d4.metric("Ngành / Quốc gia", f"{raw['industry'].nunique()} / {raw['country'].nunique()}")
-st.caption(f"Nguồn dữ liệu: {SOURCE}. Lưu ý: dữ liệu do tác giả sinh tổng hợp, kết quả mang tính minh họa.")
+stat(d1, "Số chiến dịch", f"{len(raw):,}")
+stat(d2, "Thời gian", f"{raw['date'].min():%m/%Y} – {raw['date'].max():%m/%Y}")
+stat(d3, "Nền tảng / Loại CD", f"{raw['platform'].nunique()} / {raw['campaign_type'].nunique()}")
+stat(d4, "Ngành / Quốc gia", f"{raw['industry'].nunique()} / {raw['country'].nunique()}")
 
 tab1, tab2, tab3, tab4 = st.tabs(["🎯 Dự đoán", "📊 So sánh mô hình", "🔍 SHAP tổng thể", "🗂️ Dữ liệu"])
 
